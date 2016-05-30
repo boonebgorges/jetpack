@@ -18,7 +18,7 @@ import {
 	getModule as _getModule
 } from 'state/modules';
 import { ModuleToggle } from 'components/module-toggle';
-import { EngagementModulesSettings } from 'components/module-options/moduleoptions';
+import { EngagementModulesSettings } from 'components/module-settings/modules-per-tab-page';
 import { isUnavailableInDevMode } from 'state/connection';
 
 export const Page = ( props ) => {
@@ -48,9 +48,11 @@ export const Page = ( props ) => {
 		var unavailableInDevMode = isUnavailableInDevMode( props, element[0] ),
 			toggle = (
 				unavailableInDevMode ? __( 'Unavailable in Dev Mode' ) :
-					<ModuleToggle slug={ element[0] } activated={ isModuleActivated( element[0] ) }
-								  toggling={ isTogglingModule( element[0] ) }
-								  toggleModule={ toggleModule } />
+					<ModuleToggle
+						slug={ element[0] }
+						activated={ isModuleActivated( element[0] ) }
+						toggling={ isTogglingModule( element[0] ) }
+						toggleModule={ toggleModule } />
 			),
 			customClasses = unavailableInDevMode ? 'devmode-disabled' : '';
 
@@ -72,7 +74,7 @@ export const Page = ( props ) => {
 				</p>
 			</FoldableCard>
 		);
-	});
+	} );
 	return (
 		<div>
 			{ cards }
