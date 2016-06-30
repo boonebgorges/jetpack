@@ -668,7 +668,6 @@ class Jetpack_Likes {
 	*/
 	function load_admin_css() {
 		?>
-		<?php if ( version_compare( $GLOBALS['wp_version'], '4.3-alpha', '>=' ) ) : ?>
 			<style type="text/css">
 				.vers img { display: none; }
 				.metabox-prefs .vers img { display: inline; }
@@ -704,29 +703,6 @@ class Jetpack_Likes {
 					}
 				}
 			</style>
-		<?php else : // @todo Remove when 4.3 is minimum ?>
-			<style type="text/css">
-				.fixed .column-likes { width: 5em; padding-top: 8px; text-align: center !important; }
-				.fixed .column-stats { width: 5em; }
-				.fixed .column-likes .post-com-count { background-image: none; }
-				.fixed .column-likes .post-com-count::after { border: none !important; }
-				.fixed .column-likes .comment-count { background-color: #bbb; }
-				.fixed .column-likes .comment-count:hover { background-color: #2ea2cc; }
-				.fixed .column-likes .vers img { display: none; }
-				.fixed .column-likes .vers:before {
-					font: normal 20px/1 dashicons;
-					content: '\f155';
-					speak: none;
-					-webkit-font-smoothing: antialiased;
-					-moz-osx-font-smoothing: grayscale;
-				}
-				@media screen and (max-width: 782px) {
-					.fixed .column-likes {
-						display: none;
-					}
-				}
-			</style>
-		<?php endif; ?>
 		<?php
 	}
 
