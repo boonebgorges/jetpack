@@ -53,17 +53,19 @@ export const Page = ( props ) => {
 		}
 
 		return (
-			<FoldableCard className={ customClasses } key={ `module-card_${element[0]}` /* https://fb.me/react-warning-keys */ }
+			<FoldableCard
+				className={ customClasses }
+				key={ `module-card_${element[0]}` /* https://fb.me/react-warning-keys */ }
 				header={ element[1] }
 				subheader={ element[2] }
 				summary={ toggle }
 				expandedSummary={ toggle }
-				clickableHeaderText={ true }
-			>
-				{ isModuleActivated( element[0] ) || 'scan' === element[0] ?
-					<WritingModulesSettings module={ getModule( element[0] ) } /> :
-					// Render the long_description if module is deactivated
-					<div dangerouslySetInnerHTML={ renderLongDescription( getModule( element[0] ) ) } />
+				clickableHeaderText={ true } >
+				{
+					isModuleActivated( element[0] ) || 'scan' === element[0] ?
+						<WritingModulesSettings module={ getModule( element[0] ) } /> :
+						// Render the long_description if module is deactivated
+						<div dangerouslySetInnerHTML={ renderLongDescription( getModule( element[0] ) ) } />
 				}
 				<br/>
 				<a href={ element[3] } target="_blank">Learn More</a>
